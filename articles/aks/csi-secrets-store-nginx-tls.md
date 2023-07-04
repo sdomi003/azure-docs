@@ -81,7 +81,7 @@ You can import the ingress TLS certificate to the cluster using one of the follo
     spec:
       provider: azure
       secretObjects:                            # secretObjects defines the desired state of synced K8s secret objects
-     - secretName: ingress-tls-csi
+      - secretName: ingress-tls-csi
         type: kubernetes.io/tls
         data: 
         - objectName: $CERT_NAME
@@ -330,7 +330,7 @@ Again, the instructions change slightly depending on your scenario. Follow the i
     spec:
       type: ClusterIP
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: aks-helloworld-one
     ```
@@ -396,11 +396,11 @@ We can now deploy a Kubernetes ingress resource referencing the secret.
     spec:
       ingressClassName: nginx
       tls:
-     - hosts:
+      - hosts:
         - demo.azure.com
         secretName: ingress-tls-csi
       rules:
-     - host: demo.azure.com
+      - host: demo.azure.com
         http:
           paths:
           - path: /hello-world-one(/|$)(.*)
